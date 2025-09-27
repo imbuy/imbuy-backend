@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: imbuy
+      POSTGRES_USER: imbuy
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+  app:
+    build: .
+    secrets:
+       - jwt_private_key
+    depends_on: [db]
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/imbuy
+      SPRING_DATASOURCE_USERNAME: imbuy
+      SPRING_DATASOURCE_PASSWORD: secret
+      PRIVATE_KEY_PATH: /run/secrets/jwt_private_key
+    ports:
+      - "8080:8080"
+secrets:
+  jwt_private_key:
+   file: ./private.key
+volumes:
+  db_data:
