@@ -3,5 +3,7 @@ package imbuy.backend.enums;
 public enum LotStatus {
     ACTIVE,
     COMPLETED,
-    CANCELLED
+    CANCELLED,
+    PENDING_APPROVAL,
+    DRAFT
 }

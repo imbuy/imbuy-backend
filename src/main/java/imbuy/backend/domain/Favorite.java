@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
+@IdClass(FavoriteId.class)
 public class Favorite {
     @Id
     @ManyToOne(fetch = FetchType.LAZY)
