@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "user_categories")
 @NoArgsConstructor
+@IdClass(UserCategoryId.class)
 public class UserCategory {
     @Id
     @ManyToOne(fetch = FetchType.LAZY)
@@ -32,5 +33,4 @@ public class UserCategory {
         this.user = user;
         this.category = category;
     }
-
 }
