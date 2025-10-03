@@ -16,6 +16,7 @@ services:
        - jwt_private_key
     depends_on: [db]
     environment:
+      JWT_TOKEN: vaCnfzEHxoBncФСUocjUIANP/Lg4FWfjAnESxMhqN13hiiyAMJXHy2ns64yQ7rIQIWN9qZG0EFMKS9Uw==
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/imbuy
       SPRING_DATASOURCE_USERNAME: imbuy
       SPRING_DATASOURCE_PASSWORD: secret
